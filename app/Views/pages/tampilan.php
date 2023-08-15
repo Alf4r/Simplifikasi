@@ -46,7 +46,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="pages/tables/simple.html" class="nav-link">
+              <a href="https://mycitra.telkom.co.id/tte/peruri" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Stamp PDF</p>
               </a>
