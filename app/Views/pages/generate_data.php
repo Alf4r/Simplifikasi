@@ -64,6 +64,7 @@
       </div>
       <!-- /.sidebar -->
     </aside>
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -77,7 +78,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Beranda</li>
+                <li class="breadcrumb-item active">Generate Data</li>
               </ol>
             </div>
             <!-- /.col -->
@@ -127,31 +128,174 @@
 
             <!-- ./col -->
             <div class="col-md-7">
-              <div class="card">
-                <div class="card-header p-1">
-                  <ul class="nav nav-pills">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#activity" data-toggle="tab">Step 1</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#timeline" data-toggle="tab">Step 2</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#settings" data-toggle="tab">Step 3</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#settings" data-toggle="tab">Step 4</a>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#settings" data-toggle="tab">Step 5</a>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#settings" data-toggle="tab">Step 6</a>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#settings" data-toggle="tab">Step 7</a>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#settings" data-toggle="tab">Step 8</a>
-                  </ul>
-                </div>
-              </div>
+    <div class="card">
+        <div class="card-header p-1">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#activity" data-toggle="tab">Step 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#timeline" data-toggle="tab">Step 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#step3" data-toggle="tab">Step 3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#step4" data-toggle="tab">Step 4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#step5" data-toggle="tab">Step 5</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#step6" data-toggle="tab">Step 6</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#step7" data-toggle="tab">Step 7</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#step8" data-toggle="tab">Step 8</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+        <div class="tab-content">
+    <!-- Step 1 -->
+    <div class="tab-pane active" id="step1">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 2 -->
+    <div class="tab-pane" id="step2">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 3 -->
+    <div class="tab-pane" id="step3">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 4 -->
+    <div class="tab-pane" id="step4">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 5 -->
+    <div class="tab-pane" id="step5">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 6 -->
+    <div class="tab-pane" id="step6">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 7 -->
+    <div class="tab-pane" id="step7">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    </div>
+    <!-- Step 8 -->
+    <div class="tab-pane" id="step8">
+        <div class="progress">
+            <div class="progress__fill" style="background-color: lightblue;"></div>
+            <span class="progress__text">0%</span>
+        </div>
+        <div class="button">
+            <button type="button">next</button>
+        </div>
+    
+</div>
+    <script>
+      const nextButtons = document.querySelectorAll('.button button');
+      const allSteps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8'];
+      let currentStepIndex = 0;
+      let percentage = 0;
+
+      nextButtons.forEach((button, index) => {
+          button.addEventListener("click", function() {
+
+              // Pemanggilan ke server dengan fetch
+              fetch('database.php', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: `step=${allSteps[currentStepIndex]}`
+              })
+              .then(response => response.text())
+              .then(data => {
+                  // Proses respons dari server (jika diperlukan)
+
+                  percentage += 12.5;
+
+                  const currentProgressFill = document.querySelector(`#${allSteps[currentStepIndex]} .progress__fill`);
+                  const currentProgressText = document.querySelector(`#${allSteps[currentStepIndex]} .progress__text`);
+                  currentProgressFill.style.width = percentage + "%";
+                  currentProgressText.textContent = Math.round(percentage) + "%";
+
+                  if (percentage >= 100 && currentStepIndex < allSteps.length - 1) {
+                      const nextStepTab = document.querySelector(`a[href="#${allSteps[currentStepIndex + 1]}"]`);
+                      nextStepTab.click();
+                      currentStepIndex++;
+
+                      const nextProgressFill = document.querySelector(`#${allSteps[currentStepIndex]} .progress__fill`);
+                      const nextProgressText = document.querySelector(`#${allSteps[currentStepIndex]} .progress__text`);
+                      nextProgressFill.style.width = "0%";
+                      nextProgressText.textContent = "0%";
+                      
+                      percentage = 0;
+                  }
+              })
+              .catch(error => {
+                  console.error("Terjadi kesalahan saat memproses data:", error);
+              });
+          });
+      });
+    </script>  
+
+                <!-- Anda dapat menyesuaikan animasi untuk step-step selanjutnya di sini. 
+                     Saya tidak menambahkan animasi untuk step lainnya di contoh ini,
+                     Anda dapat menambahkan sesuai keinginan Anda. -->
+            </div>
+        </div>
+    </div>
+</div>
+
               <!--/card-header-->
               <div class="card-body">
                 <div class="tab-content">
@@ -167,14 +311,14 @@
                       }
 
                       .progress__fill {
-                        width: 50%;
+                        width: 0%;
                         height: 100%;
                         background-color: lightblue;
                       }
 
                       progress__text {
                         position: absolute;
-                        top: 50%;
+                        top: 0%;
                         right: 5px;
                         transform: translateY(-50%);
                       }
@@ -192,7 +336,7 @@
                       }
 
                       .progress__fill {
-                        width: 50%;
+                        width: 0%;
                         height: 100%;
                         background-color: lightblue;
                       }
@@ -224,16 +368,6 @@
                         border-radius: 5px;
                       }
                     </style>
-                    <div class="row">
-                      <div class="column">
-                        <h2>Processing</h2>
-                        <div class="progress">
-                          <div class="progress__fill"></div>
-                          <span class="progress__text">0%</span>
-                        </div>
-                        <div class="button">
-                          <button type="button">next</button>
-                        </div>
                         <!-- Main row -->
                         <div class="row">
                           <!-- Left col -->
