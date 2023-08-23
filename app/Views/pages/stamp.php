@@ -128,7 +128,7 @@
 <!-- Script JavaScript -->
 <script>
    const nextButton = document.getElementById('nextButton');
-const targetURL = 'https://yourtargeturl.com'; // Ganti dengan URL tujuan Anda
+const targetURL = 'https://mycitra.telkom.co.id/tte/peruri'; // Ganti dengan URL tujuan Anda
 
 // Coba ambil nilai count dari localStorage. Jika tidak ada, gunakan 0 sebagai nilai default.
 let count = localStorage.getItem('countValue') ? parseInt(localStorage.getItem('countValue')) : 0; 
