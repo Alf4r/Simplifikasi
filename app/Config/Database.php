@@ -26,11 +26,11 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
+        'hostname' => '10.60.180.6/pdb_dev.telkom.co.id',
+        'username' => 'interco',
+        'password' => 'intercodev#2017',
         'database' => '',
-        'DBDriver' => 'MySQLi',
+        'DBDriver' => 'oci8',
         'DBPrefix' => '',
         'pConnect' => false,
         'DBDebug'  => true,
@@ -41,7 +41,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port'     => 3306,
+        'port'    =>1521,
     ];
 
     /**

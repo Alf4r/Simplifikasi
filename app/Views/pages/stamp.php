@@ -105,6 +105,7 @@
                 <!-- Ini adalah tempat tombol 'next' -->
                 <div class="button">
                     <button type="button" id="nextButton">next</button>
+                    <button type="button" id="resetButton">reset</button>
                 </div>
             </div>
             
@@ -127,7 +128,8 @@
 
 <!-- Script JavaScript -->
 <script>
-   const nextButton = document.getElementById('nextButton');
+const nextButton = document.getElementById('nextButton');
+const resetButton = document.getElementById('resetButton');
 const targetURL = 'https://mycitra.telkom.co.id/tte/peruri'; // Ganti dengan URL tujuan Anda
 
 // Coba ambil nilai count dari localStorage. Jika tidak ada, gunakan 0 sebagai nilai default.
@@ -145,6 +147,11 @@ nextButton.addEventListener("click", function() {
     setTimeout(function() {
         window.open(targetURL, '_blank');
     }, 100);
+});
+resetButton.addEventListener("click", function() {
+    count = 0; // Atur ulang count menjadi 0
+    localStorage.setItem('countValue', count); // Simpan nilai reset ke localStorage
+    countDisplay.innerText = count; // Perbarui tampilan
 });
 </script>
 

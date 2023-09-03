@@ -98,7 +98,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>4</h3>
+                  <h3>0</h3>
 
                   <p>Belum Di generate</p>
                 </div>
@@ -113,8 +113,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>6938</h3>
-
+                  <h3 id="GenerateValue">0</h3> <!-- Tempat menampilkan count dari halaman Stamp PDF -->
                   <p>Telah Di generate</p>
                 </div>
                 <div class="icon">
@@ -166,8 +165,22 @@
             <span class="progress__text">0%</span>
         </div>
         <div class="button">
-            <button type="button">next</button>
+            <button type="button" id="step1">next</button>
         </div>
+        <script>
+          const nextButton = document.getElementById('step1');
+          let count = localStorage.getItem('GenerateValue') ? parseInt(localStorage.getItem('GenerateValue')) : 0; 
+          const countDisplay = document.getElementById('GenerateValue');  // Dapatkan elemen untuk menampilkan nilai count
+          countDisplay.innerText = count;  // Atur tampilan awal dengan nilai count saat ini
+
+          nextButton.addEventListener("click", function() {
+              // Tambahkan 1 ke nilai count setiap kali tombol ditekan
+              count++;
+              localStorage.setItem('GenerateValue', count);  // Simpan nilai count ke localStorage
+              countDisplay.innerText = count;
+
+            });
+        </script>
     </div>
     <!-- Step 2 -->
     <div class="tab-pane" id="step2">
@@ -240,53 +253,48 @@
         </div>
     
 </div>
-    <script>
-      const nextButtons = document.querySelectorAll('.button button');
-      const allSteps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8'];
-      let currentStepIndex = 0;
-      let percentage = 0;
+<script>
+const nextButtons = document.querySelectorAll('.button button');
+const allSteps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8'];
+let currentStepIndex = 0;
+let percentage = 0;
 
-      nextButtons.forEach((button, index) => {
-          button.addEventListener("click", function() {
+nextButtons.forEach((button, index) => {
+    button.addEventListener("click", function() {
 
-              // Pemanggilan ke server dengan fetch
-              fetch('database.php', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  body: `step=${allSteps[currentStepIndex]}`
-              })
-              .then(response => response.text())
-              .then(data => {
-                  // Proses respons dari server (jika diperlukan)
+        // Pemanggilan ke QueryController
+        fetch(`/next-query/${currentStepIndex + 1}`) // +1 karena indeks dimulai dari 0 tetapi query kita mulai dari 1
+        .then(response => response.json())
+        .then(data => {
+            // Proses respons dari server (jika diperlukan)
 
-                  percentage += 12.5;
+            percentage += 12.5;
 
-                  const currentProgressFill = document.querySelector(`#${allSteps[currentStepIndex]} .progress__fill`);
-                  const currentProgressText = document.querySelector(`#${allSteps[currentStepIndex]} .progress__text`);
-                  currentProgressFill.style.width = percentage + "%";
-                  currentProgressText.textContent = Math.round(percentage) + "%";
+            const currentProgressFill = document.querySelector(`#${allSteps[currentStepIndex]} .progress__fill`);
+            const currentProgressText = document.querySelector(`#${allSteps[currentStepIndex]} .progress__text`);
+            currentProgressFill.style.width = percentage + "%";
+            currentProgressText.textContent = Math.round(percentage) + "%";
 
-                  if (percentage >= 100 && currentStepIndex < allSteps.length - 1) {
-                      const nextStepTab = document.querySelector(`a[href="#${allSteps[currentStepIndex + 1]}"]`);
-                      nextStepTab.click();
-                      currentStepIndex++;
+            if (percentage >= 100 && currentStepIndex < allSteps.length - 1) {
+                const nextStepTab = document.querySelector(`a[href="#${allSteps[currentStepIndex + 1]}"]`);
+                nextStepTab.click();
+                currentStepIndex++;
 
-                      const nextProgressFill = document.querySelector(`#${allSteps[currentStepIndex]} .progress__fill`);
-                      const nextProgressText = document.querySelector(`#${allSteps[currentStepIndex]} .progress__text`);
-                      nextProgressFill.style.width = "0%";
-                      nextProgressText.textContent = "0%";
-                      
-                      percentage = 0;
-                  }
-              })
-              .catch(error => {
-                  console.error("Terjadi kesalahan saat memproses data:", error);
-              });
-          });
-      });
-    </script>  
+                const nextProgressFill = document.querySelector(`#${allSteps[currentStepIndex]} .progress__fill`);
+                const nextProgressText = document.querySelector(`#${allSteps[currentStepIndex]} .progress__text`);
+                nextProgressFill.style.width = "0%";
+                nextProgressText.textContent = "0%";
+                
+                percentage = 0;
+            }
+        })
+        .catch(error => {
+            console.error("Terjadi kesalahan saat memproses data:", error);
+        });
+    });
+});
+
+</script>  
 
                 <!-- Anda dapat menyesuaikan animasi untuk step-step selanjutnya di sini. 
                      Saya tidak menambahkan animasi untuk step lainnya di contoh ini,

@@ -108,7 +108,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>0</h3>
+                  <h3 id ="reportGenerateValue">0</h3>
 
                   <p>Telah Di generate</p>
                 </div>
@@ -124,13 +124,17 @@
 
     
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
     // Coba ambil nilai count dari localStorage. Jika tidak ada, gunakan 0 sebagai nilai default.
-    let count = localStorage.getItem('countValue') ? parseInt(localStorage.getItem('countValue')) : 0;
-
+    let reportCount = localStorage.getItem('countValue') ? parseInt(localStorage.getItem('countValue')) : 0;
     const reportCountDisplay = document.getElementById('reportCountValue');  // Dapatkan elemen untuk menampilkan nilai count
-    reportCountDisplay.innerText = count;  // Atur tampilan dengan nilai count saat ini
-});
+    reportCountDisplay.innerText = reportCount;  // Atur tampilan dengan nilai count saat ini
+    
+    let generateCount = localStorage.getItem('GenerateValue') ? parseInt(localStorage.getItem('GenerateValue')) : 0;
+    const generateCountDisplay = document.getElementById('reportGenerateValue');  // Dapatkan elemen untuk menampilkan nilai count
+    generateCountDisplay.innerText = generateCount;  // Atur tampilan dengan nilai count saat ini
+      });
+
     </script>
     <footer class="main-footer">
 

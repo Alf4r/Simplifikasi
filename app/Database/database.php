@@ -1,30 +1,21 @@
-<?php
-// Kode untuk menghubungkan ke database Anda
-$servername = "your_servername";
-$username = "your_username";
-$password = "your_password";
-$dbname = "your_dbname";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['step'])) {
-    $step = intval($_POST['step']);
-    $conn = new mysqli($servername, $username, $password, $dbname);
+<!-- // public array $default = [
+//     'DSN'      => '',
+//     'hostname' => '10.60.180.6/pdb_dev.telkom.co.id',
+//     'username' => 'interco',
+//     'password' => 'intercodev#2017',
+//     'database' => '',
+//     'DBDriver' => 'oci8',
+//     'DBPrefix' => '',
+//     'pConnect' => false,
+//     'DBDebug'  => true,
+//     'charset'  => 'utf8',
+//     'DBCollat' => 'utf8_general_ci',
+//     'swapPre'  => '',
+//     'encrypt'  => false,
+//     'compress' => false,
+//     'strictOn' => false,
+//     'failover' => [],
+//     'port'    =>1521,
+// ]; -->
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sqlFilename = "step" . $step . ".sql";
-    
-    if (file_exists($sqlFilename)) {
-        $sql = file_get_contents($sqlFilename);
-        if ($conn->multi_query($sql)) {
-            echo "SQL file for step " . $step . " executed successfully";
-        } else {
-            echo "Error executing SQL file for step " . $step . ": " . $conn->error;
-        }
-    } else {
-        echo "File for step " . $step . " does not exist";
-    }
-
-    $conn->close();
-}

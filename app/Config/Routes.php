@@ -34,7 +34,9 @@ $routes->get('/', 'Pages::index');
 $routes->get('/generate_data', 'Pages::generate_data');
 $routes->get('/generate_pdf', 'Pages::generate_pdf');
 $routes->get('/stamp', 'Pages::stamp');  // Menambahkan rute ke metode tampilan1
-$routes->get('/report', 'Pages::report');  // Menambahkan rute ke metode tampilan2
+$routes->get('/report', 'Pages::report');
+$routes->get('next-query/(:num)', 'QueryController::loadNextQuery/$1');
+  // Menambahkan rute ke metode tampilan2
   // Menambahkan rute ke metode tampilan3
 
 /*

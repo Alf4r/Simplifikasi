@@ -1,0 +1,76 @@
+/*NON POTS*/
+insert into mp_va 
+SELECT a.* from (SELECT
+	A.ACCOUNT_NUM as GROUPID,
+	A.VIRTUAL_ACCOUNT AS VA,
+	b.BANK_NAME AS BANK,
+	A.CUSTOMER_NAME AS NAME,
+	'TOS' AS STATUS,
+	'' AS T35,
+'' as PIC,
+	'N' AS IDENTIFIKASI,
+	A.ACCOUNT_NUM as ACCOUNTAS,
+	'' UBIS
+FROM
+	TMP_TOS_VIRTUAL_ACCOUNT A
+JOIN TOS_P_BANK b ON A.ID_BANK = b.P_BANK_ID)a
+LEFT JOIN MP_VA b on a.VA=b.VA
+where a.VA is not null and b.GROUPID IS NULL;
+
+/*SIN*/
+insert into mp_va 
+select a.* from (
+SELECT
+		'SIN' || a.ID_ACCOUNT AS GROUPID,
+		b.NO AS va,
+		c.BANK_NAME AS BANK,
+		a.NAMA,
+		'COINS' AS STATUS,
+		'' AS T35,
+		'' AS PIC,
+		'' AS IDENTIFIKASI,
+		A.ACCOUNTNAS,
+		'' as UBIS
+	FROM
+		sphweb.MC_SIN_ACCOUNT@DBL_SPHWEB a
+	JOIN 
+		sphweb.MC_VIRTUAL_ACCOUNT@DBL_SPHWEB b on (a.ID_ACCOUNT=b.ACCOUNT_ID)
+	JOIN 
+		sphweb.MC_P_BANK@DBL_SPHWEB c on (b.P_BANK_ID=c.P_BANK_ID)
+	WHERE
+		b.aplikasi = 2
+) a
+LEFT JOIN mp_va b on a.VA=b.VA
+where b.GROUPID is NULL;
+
+/*SPH*/
+insert into mp_va 
+select a.* from (
+SELECT
+	TRIM('SPH' || C.SATKER_ID) AS GROUPID,
+	TRIM(D.NO) as va,
+	e.BANK_NAME AS BANK,
+	MIN (C.NAMA_SATKER) AS NAMA,
+	'COINS' AS STATUS,
+	'' AS T35,
+	'' AS PIC,
+	'P' AS IDENTIFIKASI,
+	D.SATKER_ID AS ACCOUNTNAS,
+	'' AS UBIS
+FROM
+	sphweb.mc_sph_satker@DBL_SPHWEB C 
+JOIN
+	sphweb.MC_VIRTUAL_ACCOUNT@DBL_SPHWEB D ON (C.SATKER_ID = D.SATKER_ID)
+JOIN 
+		sphweb.MC_P_BANK@DBL_SPHWEB e on (D.P_BANK_ID=e.P_BANK_ID)
+WHERE
+	D.APLIKASI = 4 
+and c.NAMA_SATKER NOT LIKE '%K O S O N G %'
+GROUP BY
+	C.SATKER_ID,D.NO,D.SATKER_ID,e.BANK_NAME
+) a
+LEFT JOIN mp_va b on a.VA=b.VA
+where b.GROUPID is NULL;
+
+commit;
+
